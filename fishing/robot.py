@@ -20,7 +20,7 @@ class FishingBaxter(Baxter):
 
     def play_traj(self, traj_file, record=False):
         traj = Trajectory(self.baxter.left_arm,
-                          load('data/{}'.traj_file))
+                          load('data/{}'.format(traj_file)))
 
         if record:
             tr = TrajectoryRecorder(self.baxter.left_arm, 50)
@@ -33,4 +33,4 @@ class FishingBaxter(Baxter):
 
         if record:
             tr.stop()
-            return tr.recorded_traj
+            return tr.recorded_trajectory

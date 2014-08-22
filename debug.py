@@ -5,7 +5,7 @@ import argparse
 
 from numpy import array, save
 
-from .robot import FishingBaxter
+from fishing import FishingBaxter
 
 REPEAT = 10
 DURATION = 60 * 60
@@ -32,9 +32,11 @@ if __name__ == '__main__':
 
         while time.time() - start < DURATION:
             baxter.goes_to_init_position()
+            time.sleep(2)
 
             t = baxter.play_traj('traj.npy', record=True)
             data.append(t.data)
+            time.sleep(2)
 
         time.sleep(DURATION)
 
