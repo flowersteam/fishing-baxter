@@ -38,7 +38,7 @@ if __name__ == '__main__':
             data.append(t.data)
             time.sleep(2)
 
-        time.sleep(DURATION)
+        time.sleep(DURATION/2)
 
     data = array(data)
     save(log, data)
