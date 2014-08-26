@@ -8,10 +8,7 @@ from baxter_flowers import (Baxter,
                             Trajectory, TrajectoryRecorder)
 
 
-class FishingBaxter(Baxter):
-    def __init__(self):
-        self.baxter = Baxter()
-
+class FishingBaxter(object):
     def goes_to_init_position(self):
         self.play_traj('init_traj.npy')
 
@@ -19,11 +16,12 @@ class FishingBaxter(Baxter):
         self.play_traj('end_traj.npy')
 
     def play_traj(self, traj_file, record=False):
-        traj = Trajectory(self.baxter.left_arm,
+        baxter = Baxter()
+        traj = Trajectory(baxter.left_arm,
                           load('data/{}'.format(traj_file)))
 
         if record:
-            tr = TrajectoryRecorder(self.baxter.left_arm, 50)
+            tr = TrajectoryRecorder(baxter.left_arm, 50)
             tr.start()
 
         traj.play()
