@@ -34,8 +34,8 @@ if __name__ == '__main__':
             baxter.goes_to_init_position()
             time.sleep(2)
 
-            t = baxter.play_traj('traj.npy', record=True)
-            data.append(t.data)
+            t = baxter.play_traj('data/traj.npy', record=True)
+            data.append(t)
             time.sleep(2)
 
         time.sleep(DURATION/2)
