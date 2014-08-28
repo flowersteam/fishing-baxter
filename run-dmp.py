@@ -38,6 +38,9 @@ if __name__ == '__main__':
             traj = baxter.random_dmp(bfs=10, W=50, duration=5.)
 
             for _ in range(NTIMES):
+                baxter.goes_to_init_position()
+                time.sleep(2)
+            
                 t = baxter.play_traj(traj, record=True)
                 data.append(t)
                 time.sleep(2)
